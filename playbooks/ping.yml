@@ -1,0 +1,6 @@
+- name: Test connection
+  hosts: ubuntu_target
+  gather_facts: no
+  tasks:
+    - name: Ping hosts
+      ansible.builtin.ping:
