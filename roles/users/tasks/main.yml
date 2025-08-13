@@ -1,0 +1,23 @@
+---
+- name: Ensure groups exist
+  ansible.builtin.group:
+    name: "{{ item.groups }}"
+    state: present
+  loop: "{{ users }}"
+
+- name: Ensure users exist
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    groups: "{{ item.groups | default('') }}"
+    shell: /bin/bash
+    create_home: yes
+    state: present
+  loop: "{{ users }}"
+
+- name: Add authorized SSH key for users
+  ansible.posix.authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "{{ lookup('file', item.pubkey) }}"
+  when: item.pubkey is defined
+  loop: "{{ users }}"
