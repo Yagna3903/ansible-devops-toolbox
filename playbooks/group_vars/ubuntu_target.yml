@@ -1,0 +1,25 @@
+---
+app_name: "Ansible Devops Toolbox demo"
+
+web_index_content: |
+  <html>
+  <head><title>{{ app_name }}</title></head>
+  <body>
+  <h1>{{ app_name }}</h1>
+  <p>Deployed by Ansible on "{{ ansible_fqdn | default(inventory_hostname) }}"</p>
+  </body>
+  </html>
+
+users:
+  - name: yagna3903
+    groups: sudo
+    pubkey: /home/yagna3903/.ssh/id_rsa.pub
+  - name: deploy
+    groups: sudo
+  - name: devops
+    groups: docker
+
+allowed_ports:
+  - 22
+  - 80
+  - 443
