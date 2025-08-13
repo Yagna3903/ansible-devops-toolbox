@@ -1,0 +1,9 @@
+- name: Configure servers (users, ssh, nginx, webapp, firewall)
+  hosts: ubuntu_target
+  become: yes
+  roles:
+    - users
+    - ssh-hardening
+    - nginx
+    - webapp
+    - firewall
