@@ -1,0 +1,20 @@
+- name: Ensure PermitRootLogin is set to no
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PermitRootLogin'
+    line: 'PermitRootLogin no'
+    backup: yes
+  notify: Restart ssh
+
+- name: Ensure PasswordAuthentication is set to no
+  ansible.builtin.lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+    backup: yes
+  notify: Restart ssh
+
+- name: Restart sshd
+  ansible.builtin.service:
+    name: ssh
+    state: restarted
