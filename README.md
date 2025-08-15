@@ -42,3 +42,45 @@ Ansible-devops-toolbox/
 - Ansible 2.15+
 - Python 3.x
 - SSH access to target nodes
+- A configured inventory file (hosts.ini) with reachable hosts
+
+#### hosts.ini (inside inventories/dev):
+```
+[ubuntu_target]
+192.168.56.102 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/id_rsa
+```
+
+## 📦 Installation
+Clone this repository:
+```
+git clone https://github.com/Yagna3903/Ansible-devops-toolbox.git
+cd Ansible-devops-toolbox
+```
+#### Install required roles (if not already present):
+```
+ansible-galaxy install -r requirements.yml
+```
+
+## ▶️ Usage
+### 1. Test Connectivity
+```
+ansible-playbook -i inventories/dev/hosts.ini playbooks/ping.yml
+```
+### 2. Run Full Setup
+```
+ansible-playbook -i inventories/dev/hosts.ini playbooks/site.yml --ask-become-pass
+```
+
+## 📜 Roles Overview
+| Role              | Description                                  |
+| ----------------- | -------------------------------------------- |
+| **firewall**      | Configures `ufw` rules for system security   |
+| **nginx**         | Installs and configures the Nginx web server |
+| **ssh-hardening** | Implements secure SSH configurations         |
+| **users**         | Creates and manages system users             |
+| **webapp**        | Deploys and serves a sample web application  |
+
+## 🖼 Example Output
+#### Running the full playbook:
+<img width="1564" height="1111" alt="image" src="https://github.com/user-attachments/assets/47ad5d69-34f0-4d1e-99ad-f5f5bb8202b2" />
+
