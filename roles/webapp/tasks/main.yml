@@ -1,0 +1,8 @@
+- name: Deploy web index
+  ansible.builtin.copy:
+    dest: /var/www/html/index.html
+    content: "{{ web_index_content }}"
+    owner: www-data
+    group: www-data
+    mode: '0644'
+  become: yes
