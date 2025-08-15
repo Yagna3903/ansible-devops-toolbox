@@ -82,5 +82,20 @@ ansible-playbook -i inventories/dev/hosts.ini playbooks/site.yml --ask-become-pa
 
 ## 🖼 Example Output
 #### Running the full playbook:
-<img width="1564" height="1111" alt="image" src="https://github.com/user-attachments/assets/47ad5d69-34f0-4d1e-99ad-f5f5bb8202b2" />
+<img width="850" height="550" alt="image" src="https://github.com/user-attachments/assets/47ad5d69-34f0-4d1e-99ad-f5f5bb8202b2" />
 
+## 📄 License
+
+This project is licensed under the MIT License, see the [LICENSE](LICENSE) file for details.
+
+
+## 🤝 Contributing
+
+Pull requests are welcome! Please fork this repository, create a feature branch, and submit a PR.
+For major changes, open an issue to discuss what you’d like to change.
+
+## 📧 Contact
+
+Author: <b>Yagna Patel</b> <br>
+LinkedIn: [yagna--patel](www.linkedin.com/in/yagna--patel) <br>
+Email: yagna.pattel@gmail.com
